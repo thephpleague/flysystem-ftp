@@ -370,7 +370,7 @@ class FtpAdapter implements FilesystemAdapter
             }
 
             if (preg_match('#^.*:$#', $item)) {
-                $base = preg_replace('~^\./*|:$~', '', $item);
+                $base = $this->prefixer->stripPrefix(preg_replace('~^\./*|:$~', '', $item));
                 continue;
             }
 
