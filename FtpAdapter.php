@@ -586,8 +586,7 @@ class FtpAdapter implements FilesystemAdapter
     {
         try {
             $readStream = $this->readStream($source);
-            $visibility = $this->visibility($source)->visibility();
-            $this->writeStream($destination, $readStream, new Config(compact('visibility')));
+            $this->writeStream($destination, $readStream, $config);
         } catch (Throwable $exception) {
             if (isset($readStream) && is_resource($readStream)) {
                 @fclose($readStream);
