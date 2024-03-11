@@ -92,10 +92,10 @@ class FtpAdapter implements FilesystemAdapter
             return $this->connection;
         }
 
-        if ($this->connectivityChecker->isConnected($this->connection) === false) {
-            $this->connection = false;
-            goto start;
-        }
+         if ($this->connectivityChecker->isConnected($this->connection) === false) {
+             $this->connection = false;
+             goto start;
+         }
 
         ftp_chdir($this->connection, $this->rootDirectory);
 

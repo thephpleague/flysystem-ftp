@@ -19,7 +19,8 @@ class NoopCommandConnectivityChecker implements ConnectivityChecker
         }
         // @codeCoverageIgnoreEnd
 
-        $responseCode = $response ? (int) preg_replace('/\D/', '', implode('', $response)) : false;
+            //$responseCode = $response ? (int) preg_replace('/\D/', '', implode('', $response)) : false;
+        $responseCode = $response ? (int) substr(implode('', $response), 0, 3) : false;
 
         return $responseCode === 200;
     }
