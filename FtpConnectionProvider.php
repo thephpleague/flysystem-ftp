@@ -30,7 +30,7 @@ class FtpConnectionProvider implements ConnectionProvider
             $this->ignorePassiveAddress($options, $connection);
             $this->makeConnectionPassive($options, $connection);
         } catch (FtpConnectionException $exception) {
-            ftp_close($connection);
+            @ftp_close($connection);
             throw $exception;
         }
 
